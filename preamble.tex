@@ -1,0 +1,123 @@
+% Contains a list of standard packages and command declarations.
+
+%-------------------------------------------------------------------------------
+% SMALLER MARGINS
+%-------------------------------------------------------------------------------
+\usepackage{xcolor} 
+\usepackage{wrapfig}
+\newcommand{\red}[1]{\textcolor{red}{(#1)}}
+\newcommand{\blue}[1]{\textcolor{blue}{(#1)}}
+\usepackage{natbib}
+\usepackage{soul}
+\setstcolor{red}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm} % for bold math symbols
+\usepackage{bbm} % for bold fonts in math mode
+\usepackage{mathtools}
+%\usepackage[ruled,linesnumbered]{algorithm2e}
+% \usepackage{algorithm}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage[ruled, vlined,linesnumbered]{algorithm2e}
+\usepackage{hyperref}
+% Set 2 or 1.5 to increase line spacing.
+% \linespread{2}
+
+% PARAGRAPH INDENTATION 
+% \newlength\tindent
+% \setlength{\tindent}{\parindent}
+% % \setlength{\parindent}{0pt} % set paragraph indentation to zero
+% \renewcommand{\indent}{\hspace*{\tindent}} % use \indent to manually indent a paragraph with the original \parindent length
+
+
+% \usepackage[font=small,labelfont=bf,tableposition=top]{caption}
+% \usepackage[font=footnotesize]{subfig}
+
+\usepackage{subcaption}
+\usepackage{diagbox}
+%--------------------------------------------------------------------------------
+% For Multi-line cells in tables
+\usepackage{makecell}
+\setlength\extrarowheight{5pt}
+% \usepackage[thinlines]{easytable}
+
+%--------------------------------------------------------------------------------
+
+% REDUCE WHITESPACE AFTER FIGURE
+% \setlength{\belowcaptionskip}{-12pt}
+
+% REMOVE WHITESPACE BEFORE AND AFTER FLOAT 
+\setlength{\textfloatsep}{0.5cm}
+\setlength{\floatsep}{0.5cm}
+
+% REMOVE SPACE BEFORE AND AFTER EQUATIONS 
+\makeatletter
+\g@addto@macro\normalsize{%
+\setlength\abovedisplayskip{6pt} %default 6
+\setlength\belowdisplayskip{6pt}
+\setlength\abovedisplayshortskip{6pt} %default 6
+\setlength\belowdisplayshortskip{6pt}
+}
+\makeatother
+
+
+
+
+
+% % EULER CALIGRAPHIC SCRIPT FONT
+% \usepackage[mathscr]{euscript} 
+
+% Define the Theorems and Definitions
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{claim}{Claim}
+\newtheorem{corollary}{Corollary}
+\newtheorem{assumption}{Assumption}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+% Define new commands
+\newcommand{\lp}{\left (} % Left parantheses
+\newcommand{\rp}{\right )} % Right parantheses
+\newcommand{\lb}{\left [}
+\newcommand{\rb}{\right ]}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mbb}[1]{\mathbb{#1}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\indi}[1]{\mathbbm{1}_{ \{#1\} }}
+
+\newcommand{\reals}{\mathbb{R}} 
+
+
+
+
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\Y}{\mathcal{Y}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\tbf}[1]{\textbf{#1}}
+
+
+
+% Commands for pushing text to the left and right in an align environment
+\makeatletter
+\newcommand{\pushright}[1]{\ifmeasuring@#1\else\omit\hfill$\displaystyle#1$\fi\ignorespaces}
+\newcommand{\pushleft}[1]{\ifmeasuring@#1\else\omit$\displaystyle#1$\hfill\fi\ignorespaces}
+\makeatother
+
+
+% ARGMIN AND ARGMAX COMMANDS
+% \DeclareMathOperator*{\argmax}{arg\,max}
+% \DeclareMathOperator*{\argmin}{arg\,min}

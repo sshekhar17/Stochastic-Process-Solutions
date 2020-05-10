@@ -1,0 +1,48 @@
+% \documentclass[a4paper, 10pt]{amsart}
+\documentclass[a4paper, 10pt]{article}
+\usepackage{comment} % enables the use of multi-line comments (\ifx \fi) 
+\usepackage{enumitem}
+\usepackage{fullpage} % changes the margin
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathtools}
+
+\input{preamble.tex}
+
+\setlength{\parindent}{0em}
+
+
+\newcommand{\exercise}[1]{\vspace{1em} \noindent{\textbf{Exercise~#1:}}\\}
+
+
+\newcommand{\alg}{\mathcal{A}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\borel}{\mathcal{B}_{\mathbb{R}}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\Ss}{\mathcal{S}}
+
+\title{Folland Solutions}
+\begin{document}
+
+
+%Header-Make sure you update this information!!!!
+\noindent
+\large\textbf{Exercise Solutions} \hfill \textbf{SHUBHANSHU SHEKHAR} \\
+\normalsize Stochastic Processes \hfill email: shshekha@eng.ucsd.edu  \\
+\normalsize  \hfill Lecture Notes by A. Dembo\\
+\noindent\makebox[\linewidth]{\rule{\textwidth}{0.4pt}}
+
+\tableofcontents 
+\newpage 
+
+%________________________________________________________________________________
+\section{Probability, Measure and Integration}
+\label{sec:chapter1}
+\input{Chapter1}
+\newpage 
+%________________________________________________________________________________
+
+
+\end{document}

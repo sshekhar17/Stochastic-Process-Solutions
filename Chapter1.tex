@@ -1,0 +1,194 @@
+\subsection{Probability Spaces and \texorpdfstring{$\sigma$}{s}-fields}
+\exercise{1.3} 
+\begin{enumerate}[label=(\alph*)]
+\item Since $A, B \in \mc{F}$ with $A \subset B$, we have $C \coloneqq B \setminus A \in \mc{F}$ and $B = A + C$. Due to the finite additivity of $P$, we then get $P(B) = P(A) + P(C)$ which implies $P(B) \geq P(A)$ from the non-negativity of $P$. 
+
+\item Define $B_i \coloneqq A_i \setminus A_{i-1}$ (assuming $A_0 = \emptyset$). Then we have $\cup_i A_i = \sum_i B_i$, which implies $P(\cup_iA_i) = \sum_i P(B_i) \leq \sum_i P(A_i)$. The previous inequality uses the monotonicity of $P$. The result follows by noting that $P(A) \leq P(\cup_iA_i)$, again due to monotonicity of $P$. 
+
+\item Carrying the notation from $(b)$, we have $\lim_{n \to \infty} \sum_{i=1}^n B_i = \lim_{n \to \infty} A_i \coloneqq A$. Also by the increasing assumption on $(A_i)_{i \geq 1}$, we have $\sum_{i=1}^n B_i = A_n$. Thus we get the following sequence:
+\begin{align*}
+    P(A) = P\lp\lim_{n\to\infty} \sum_{i=1}^n B_i \rp \stackrel{(i)}{=} \lim_{n \to \infty} \sum_{i=1}^{n} P(B_i) = \lim_{n \to \infty} P(A_n), 
+\end{align*}
+where \tbf{(i)} follows from the countable additivity of $P$. 
+
+\item The result follows from $(c)$ applied to the collection of sets $(D_i)_{i \geq 1}$ with $D_i \coloneqq \Omega \setminus A_i$. 
+
+\item The result follows by induction. For $n=2$, we know that $P(A_1 \cup A_2) = P(A_1) + P(A_2) - P(A_1 \cap A_2)$. Next assume that the statement is true for $n-1$, and introduce the notation $C_n \coloneqq \cup_{i=1}^n A_i$ for $n \geq 1$. Then we have $P(C_n) = P(C_{n-1} \cup A_n) = P(C_{n-1}) + P(A_n) - P(C_{n-1}\cap A_n)$ from the $n=2$ case. The result then follows by expanding the first and last terms based on induction hypothesis. 
+\end{enumerate}
+
+\exercise{1.1.6}
+Let $\mc{G} = \cap_{\alpha \in \Gamma} \mc{F}_\alpha$. Then we have 
+\begin{itemize}
+    \item $\Omega \in \mc{F}_\alpha$ for all $\alpha$, implies $\Omega \in \mc{G}$. 
+    \item Suppose $A \in \mc{G}$. Then $A\in \mc{F}_\alpha$ for all $\alpha$ and thus $A^c \in \mc{F}_\alpha \forall \alpha$ which implies $A^c \in \cap_\alpha \mc{F}_\alpha = \mc{G}$. Hence $\mc{G}$ is closed under complements. 
+    \item Finally, suppose $(A_i)_{i \geq 1} \subset \mc{G}$. Thi s means $(A_i)_{i \geq 1} \subset \mc{F}_\alpha, \; \forall \alpha \in \Gamma$ and thus $\cup_i A_i \in \mc{F}_\alpha, \; \forall \alpha$ which implies $\cup_i A_i \in \mc{G}$. 
+\end{itemize}
+Thus $\mc{G}$ is a $\sigma-$algebra. 
+
+Now, let $\mc{F}_1 \coloneqq \{\Omega, \emptyset, A, A^c\}$ and $\mc{F}_2 \coloneqq \{ \Omega, \emptyset, B, B^c\}$. While both $\mc{F}_1$ and $\mc{F}_2$ are $\sigma-$algebras, $\mc{F}_1 \cup \mc{F}_2$ is not, since $A, B \in \mc{F}_1 \cup \mc{F}_2$, but $A\cup B$ doesn't. 
+
+
+\exercise{1.1.9} The result follows by applications of Lemma~1.1.8. 
+\begin{itemize}
+    \item Let $\mc{B}_1 \coloneqq \sigma \lp \{ [a, b],\; a<b \}\rp$. Then since $(a,b) = \cup_{n\in \mbb{N}} (a+1/n,\, b-1/n)$, we have $(a,b) \in \mc{B}_1$. Similarly, since $[a,b] = \cap_{n\in \mbb{N}} (a-1/n,\, b+1/n)$, we have $[a,b] \in \mc{B}$. Thus by Lemma~1.1.8, $\mc{B} = \mc{B}_1$. 
+    
+    \item Let $\mc{B}_2 \coloneqq \sigma\lp \{ (-\infty, b], \, b \in \mbb{R}\}\rp$. Note that $(a, b] \in \mc{B}_2$ for all $a<b$. Then for any $a<b$, we have $(a,b) = \cup_{n \in \mbb{N}} (a, b-1/n] \in \mc{B}_2$. Similarly, $(a,b] = \cap_{n \in \mbb{N}} (a, b+1/n) \in \mc{B}$. 
+    
+    \item Let $\mc{B}_3= \sigma \lp \{ (-\infty, b], \, b \in \mbb{Q} \}\rp$. First we note that for any $b \in \mbb{Q}$, we have $(-\infty, b] \in \mc{B}_2$. Next, since $\mbb{Q}$ is dense in $\mbb{R}$, for any $b\in \mbb{R}$, there exists a sequence $(b_n)_{n\in \mbb{N}}$ which decreases to $b$. So,  we can write $(-\infty, b] = \cap_{n \in \mbb{N}} (-\infty, b_n ]$, which implies that $(-\infty, b] \in \mc{B}_3$. Thus we have $\mc{B}_3= \mc{B}_2 = \mc{B}$. 
+    
+    \item Let $\mc{B}_4 \coloneqq \sigma \lp \{ E\subset \mbb{R},\, E \text{ is open}\}\rp$. Then clearly for any $a<b$, we must have $(a,b) \in \mc{B}_4$. Also since any open set $E$ is a countable union of intervals, we must have $A \in \mc{B}$. Thus $\mc{B}_4 = \mc{B}$ by another application of Lemma~1.1.8.
+\end{itemize}
+
+
+\exercise{1.1.12} 
+\begin{itemize}
+    \item $(1/2, 3/2) \in\mc{B}$ as its an open interval. 
+    \item Any point $a \in \mbb{R}$ belongs to $\mc{B}$. This is because $a = \cap_{ n \in \mbb{N}} (a-1/n, a+1/n)$ which lies in $\mc{B}$. 
+    \item Previous statement along with the closure of $\mc{B}$ under countable unions implies that any countable $A \subset \mbb{R}$ lies in $\mc{B}$. 
+    
+    \item Previous statement implies that $\mbb{Q} \in \mc{B}$, as $\mbb{Q}$ is countable. 
+    
+    \item Finally, since $\mc{B}$ is closed under complements it implies that the set of irrationals $\mbb{R} \setminus \mbb{Q}$ lies in $\mc{B}$. 
+\end{itemize}
+
+%________________________________________________________________________________
+%________________________________________________________________________________
+\subsection{Random Variables and their Expectations}
+\label{subsec:random_variables}
+
+\exercise{1.2.4}
+\begin{enumerate}[label=(\alph*)]
+\item Since $w \in \emptyset$ is always false, we have $I_\emptyset(w)=0$ for all $w \in \Omega$. Similarly, since $w\in \Omega$ is always true, $I_\Omega(w) = 1$ for all $w\in \Omega$. 
+
+\item Since $w \in A$ is $\neg (w \in A^c)$, the result follows. 
+\item Note that $A = \{w \in \Omega:\, I_A(w)=1\}$ and similarly $B = \{w \in \Omega:\, I_B(w)=1\}$. Now if $I_A\leq I_B$, this implies that $A \subset B$. Next, assume that $A \subset B$. Thus if  $w \in A$ then $w \in B$, and thus $I_A \leq I_B$. 
+
+\item Let $A \coloneqq \cap_i A_i$. Suppose $I_A(w) = 1$. This implies that $w \in A_i$ for all $i$ and hence $I_{A_i}(w) = 1$ and thus $\prod_{i \geq 1} I_{A_i}(w)=1$. For the other direction, assume that $\prod_i I_{A_i}(w)=1$. This means that $w \in A_i$ for all $i$, and thus $w \in \cap_i A_i$. 
+
+\item Let $f(w) = I_{\cup_iA_i}(w)$,  $f_i(w) = I_{A_i}(w)$ and $g(w) = \sum_i f_i(w)$. We need to show that $f(w) = g(w)$ for all $w \in \Omega$. 
+
+$f(w)=1$ implies that there exists an $i$ such that $w \in A_i$, and thus $\{f(w)=1\} \subset \sum_i A_i$. 
+
+$g(w)=1$ implies that there exists $i$ such that $f_i(w)=1$ which means that $w \in A_i$. Thus $\{g(w)=1\} = \sum_i A_i$. 
+\end{enumerate}
+
+\exercise{1.2.5} For $\Omega= \{1,2,3\}$ consider $\mc{F}= \{\Omega, \emptyset, \{1\}, \{2,3\}\}$. Let $f:\Omega \mapsto \mbb{R}$ with $f(1) = a$, $f(2)=b$ and $f(3)=c$ such that $b>c\geq a$. Then $\{w \in \Omega:\, f(w) \leq b\} = \{1, 3\}$ which does not lie in $\mc{F}$. Thus the function $f$ is not $\mc{F}-\mc{B}$ measurable. 
+
+
+\exercise{1.2.9} $\sigma(X_0) = \{\Omega, \emptyset\}$. ...
+
+\exercise{1.2.10} Consider the event $A_x = \{X_\infty \leq x\}$ for some $x\in \reals$. It suffices to show that this set lies in $\mc{F}$. Since the limit $\lim_{n \to \infty}X_n(w)$ exists a.s., we must have $\liminf_{n \to \infty} X_n(w) = \limsup_{n\to \infty} X_n(w)$ a.s. as well. For any $n  \geq 1$, introduce the notation $E_{n,x} = \{w\in \Omega: X_n(w) \leq x\}$. Then we have $\{\liminf_{n \to \infty}X_n \leq x \} = \cup_{n \geq 1} \cap_{m \geq n} E_{m,x}$. Since, for every $m$, the set $E_{m,x} \in \mc{F}$, the set $\cup_{n \geq 1} \cap_{m \geq n} E_{m,x} \in \mc{F}$ due to the closure of $\mc{F}$ under countable intersections and unions. 
+
+
+\exercise{1.2.12}
+\begin{enumerate}[label=(\alph*)]
+\item
+Let $A = \{x \in \reals: g(x) \leq a\}$, and $(x_n)_{n \geq 1} \subset A$ be any sequence converging to some point $x \in \reals$. It suffices to show that $x \in A$. By the definition of continuity, we know that $(y_n)_{n \geq 1} = (g(x_n))_{n \geq 1}$ is also convergent in $\reals$ and furthermore, by definition of $A$, $y_n \leq a$ for all $n \geq1$. Also, due to convergence of $(y_n)_{n \geq 1}$ we know that there exists $M>-\infty$ such that $y_n \geq M$ for all $n$. Thus $(y_n)_{n \geq 1}$ is a convergent sequence in the closed set $[M, a]$ and thus $\lim_{n \to \infty} y_n \coloneqq y \leq a$. Since $g(x) = y$, this implies that $x \in A$. 
+\item 
+Since we know that the sets of the form $\{ (-\infty, a]: a\in \reals\}$ generate the Borel sigma-algebra, the previous result implies that all continuous functions $g$ are Borel measurable.
+\end{enumerate}
+
+\exercise{1.12.15}
+\begin{itemize}
+    \item For any $a\in \reals$, we note that $\{ \alpha X_n \leq a\} = \{ X_n \leq a/\alpha\} \in \mc{B}$. Thus $\alpha X_n$ is a random variable. 
+    
+    \item Define a mapping $g:\Omega \mapsto \reals^2$ such that $g(w) = (X_1(w), X_2(w))$ for $w\in \Omega$. Since $X_1$ and $X_2$ are random variables, the mapping $g$ is also measurable with respect to the product $\sigma$-algebra on $\reals^2$. Furthermore, the mapping $h:\reals^2 \mapsto \reals$ defined as $h(x_1, x_2) = x_1 + x_2$ is continuous, and hence Borel measurable. Thus we have $X_1 + X_2 = h \circ g$, which is a composition of two Borel measurable mapping, and hence is Borel measurable. 
+    
+    \item $X_1.X_2$ is also a random variable following the same argument as in the previous case, using the observation that $h:\reals^2 \mapsto \reals$ defined as $h(x_1, x_2) = x_1.x_2$ is also a continuous mapping. 
+\end{itemize}
+
+\exercise{1.2.18}
+Consider the probability space $(\Omega, \mc{F}, P)$ where $\Omega = \{1,2,\ldots, 2N\}$ for some $N \in \mbb{N}$, $\mc{F} = 2^{\Omega}$ and $P$ is the uniform measure over $\Omega$. 
+\begin{itemize}
+    \item Let $f:\Omega \mapsto \Omega$ be a bijection (i.e., a permutation of $\{1,2,\ldots, 2N\}$). Then we have $\sigma(f) = 2^\Omega$. 
+    
+    \item Let $g:\Omega \mapsto \Omega$ be such that $g(w)=1$ if $w \leq N$ else $g(w)=2$. Let $A = \{1,2,\ldots, N\}$. Then $\sigma(g) = \{\emptyset, \Omega, A, A^c\}$ which is a strict and non-trivial subset of $\mc{F}$. 
+\end{itemize}
+
+\exercise{1.2.22} For this experiment, we have $\Omega = \{1,\ldots, 6\}^n$, $\mc{F}=2^\Omega$ and $P$ such that $P(w) = (1/6)^n$ for all $w\in \Omega$.
+The random variable $D(w) = \sum_{i=1}^nw_i$ for every $w=(w_1,\ldots, w_n)\in \Omega$, has an expected value of $\sum_{w \in \Omega} \frac{\sum_{i=1}^n w_i}{6^n}$. 
+
+\exercise{1.2.27} Suppose $\lim_{M \to \infty} E[|X| \indi{|X|>M}] = 0$. This means that there exits $M<\infty$ such that $E[|X|\indi{|X|>M}] \leq \epsilon$, which implies that $\mbb{E}[|X|] = \mbb{E}\lb |X|\lp \indi{|X|\leq M} + \indi{|X|>M} \rp \rb \leq M + \epsilon <\infty$. Hence $X$ is integrable. 
+
+Now suppose $X$ is integrable, and thus $\mbb{E}\lb |X| \rb < \infty$. Given $(M_n)_{n \geq 1}$ such that $\lim_{n \to \infty}M_n=\infty$, define the r.v.s. $Z_n = |X| \indi{|X|\leq M_n}$ and $Y_n = |X|\indi{|X|>M_n}$. By definition $Z_n \uparrow X$ a.e.. Thus by Monotone Convergence Theorem, we know that $\lim_{n \to \infty} \mbb{E}[Z_n] = E[|X|] = \lim_{n \to \infty} \mbb{E}\lb |X| \lp \indi{|X|\leq M_n} + \indi{|X|>M_n}\rp \rb  = \lim_{n \to \infty}\mbb{E}[Z_n] + \mbb{E}[Y_n]$. This implies that $\lim_{n \to \infty} \mbb{E}[Y_n]= 0$ for any sequence $(M_n)_{n \geq 1}$ going to infinity. 
+
+\exercise{1.2.31} By Prop.1.2.29, we have that the following:
+\begin{align*}
+    \mbb{E}[Y] = \frac{1}{\sqrt{2 \pi \sigma^2}} \int_{\reals} e^{x}  \exp \lp-(x-\mu)^2/(2\sigma^2)\rp dx 
+    = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{\mu+\sigma^2/2} \int_{\reals} \exp\lp - \lp \frac{(x-(\mu-\sigma^2))^2}{2\sigma^2} \rp \rp dx = e^{\mu + \sigma^2/2}
+\end{align*}
+
+
+\exercise{1.2.32} 
+\begin{enumerate}[label=(\alph*)]
+\item By changing to polar-coordinates, we know that there exists some constant $C<\infty$ such that 
+\begin{align*}
+    \int \frac{1}{1+|x|^\alpha}dx  = C \int_{0}^{\infty}\frac{1}{1+r^\alpha}dr. 
+\end{align*}
+Since the RHS of the above display is finite only for $\alpha>1$, the corresponding probability distribution exists only for $\alpha>1$. 
+
+\item 
+\end{enumerate}
+
+
+\exercise{1.2.34}
+
+
+\exercise{1.2.35}
+Introduce the random variable $I_i$ which takes the value $1$ if $X_i \neq X_{i+1}$ for $i \leq n-1$. Then the total number of runs, denoted by $Z$, is equal to $1+ \sum_{i=1}^{n-1} I_i$. The expected value of $Z$ is $E[Z] = 1 + \sum_{i=1}^{n-1}\mbb{E}[I_i] = 1 + 2(n-1)p(1-p)$. 
+
+\exercise{1.2.40}
+Suppose $\mbb{E}[X^2]=0$. Then by Markov's inequality, we have for any $x>0$, 
+\begin{align*}
+   \mbb{P}(|X|>x) \leq \frac{\mbb{E}[X^2]}{x^2} = 0. 
+\end{align*}
+Now, we have $\{|X|>0\} = \cup_{n \in \mbb{N}}\{|X| \geq 1/n\}$. Then by a union bound, we have $\mbb{P}\lp |X| > 0 \rp \leq \sum_{n\in \mbb{N}} \mbb{P} \lp |X| > 1/n\rp = 0$. 
+
+
+\subsection{Convergence of random variables}
+\label{subsec:convergence}
+
+\exercise{1.3.2}
+Let $A = \{w \in \Omega\;:\; \lim_{n \to \infty} X_n(w) = X(w)\}$. By assumption, we have $P(A)=1$. Now, fix an $w \in A$, and introduce $x_n= X_n(w)$ for $n\geq 1$ and $x=X(w)$. Since $\lim_{n \to \infty} x_n = x$ and $f$ is continuous, we have $\lim_{n \to \infty} f(x_n) = f(x)$. Thus we have $A \subset \{w \in \Omega: \lim_{n\to\infty}f(X_n) = f(X)\}$, which implies that $f(X_n) \to f(X)\quad a.s.$.
+
+
+\exercise{1.3.4}
+Note that we can rewrite $B$ as follows: $B = \cap_{m =1}^{\infty}\cup_{k \geq 1} \cap_{n \geq k} \{w: |X_n(w)-X(w)| \leq 1/m \}$. If $X_n \to X$ a.s., then we have $P(B)=1$. 
+
+Due to the increasing property of the sequence of sets $(A_k)_{k \geq 1}$, we have that $(A_k)_{k \geq 1}$ increases to the set $A \coloneqq \cup_{k\geq 1}A_k = \cup_{k \geq 1}\cap_{n \geq k} \{w: |X_n(w)-X(w)|\leq \epsilon\}$. 
+Next, for a given $\epsilon>0$, choose $m_0 = \lceil 1/\epsilon \rceil$. 
+Then we have the following: 
+\begin{align*}
+    B \subset \cup_{k \geq 1}\cap_{n \geq k}\{w: |X_n(w)-X(w)|\leq 1/m_0\} \subset A,
+\end{align*}
+where the second inclusion uses the fact that by design $1/m_0 < \epsilon$. Thus if $P(B)=1$, then we must have $P(A)=1$ as well. Furthermore, due to the \emph{continuity from below of $P$}, we also have that $\lim_{k \to \infty} P(A_k) = P(\cup_{k \geq 1}A_k) = P(A) = 1$. 
+
+Next, we observe that by definition $A_k^c = \cup_{k \geq n} C_n \supset C_k$, which implies the following:
+\begin{align*}
+    0 = 1 - P(A) = P(A^c) =  \lim_{k \to \infty}P(A_k^c) \geq \limsup_{k \to \infty}P(C_k). 
+\end{align*}
+Thus we have that $\lim_{k \to \infty}P(C_k) = 0$ as required. Since the above result holds for $C_n$ defined with arbitrary $\epsilon>0$, the result is equivalent to the convergence in probability of $(X_n)_{n \geq 1}$ to $X$. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
